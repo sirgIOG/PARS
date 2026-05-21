@@ -1,0 +1,112 @@
+:root {
+  /* Earthy "Human-Made" Palette */
+  --color-knit-sweater: #EEE6DE;
+  --color-midnight: #37514D;
+  --color-steel-blue: #90AEB2;
+  --color-cranberry: #B6594C;
+  --color-ceramic-mug: #DDBE75;
+  --color-camel-coat: #BE845E;
+
+  /* Mapping to existing variables to maintain layout mechanics */
+  --apple-bg: var(--color-knit-sweater);
+  --apple-bg-gradient: none;
+  --apple-card: #FAF9F6; /* Warm off-white */
+  --apple-card-hover: #FFFFFF;
+  
+  --apple-text-primary: var(--color-midnight);
+  --apple-text-secondary: #5a7571; /* Lighter shade of midnight */
+  --apple-text-muted: #889e9a;
+  
+  --apple-blue: var(--color-steel-blue);     /* Soft primary actions */
+  --apple-blue-hover: #7b999d;
+  
+  --apple-red: var(--color-cranberry);       /* Errors / Critical */
+  --apple-orange: var(--color-camel-coat);   /* Warnings */
+  --apple-green: var(--color-midnight);      /* Deep organic green for success */
+  --apple-yellow: var(--color-ceramic-mug);
+  
+  --apple-border: rgba(55, 81, 77, 0.15);    /* Subtle midnight tint for borders */
+  --apple-border-hover: rgba(55, 81, 77, 0.25);
+  --apple-input-bg: #FFFFFF;
+  
+  --apple-shadow: 0 8px 30px rgba(55, 81, 77, 0.06);
+  --apple-shadow-hover: 0 12px 40px rgba(55, 81, 77, 0.09);
+  
+  /* Fonts: Warm serif for headings, clean sans for UI data */
+  --font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif;
+  --font-heading: "Optima", "Georgia", "Times New Roman", serif;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  background-color: var(--apple-bg);
+  background-image: var(--apple-bg-gradient);
+  color: var(--apple-text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--apple-text-primary);
+  margin-top: 0;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+a {
+  color: var(--apple-blue);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--apple-blue-hover);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(55, 81, 77, 0.2);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(55, 81, 77, 0.3);
+}
+
+button {
+  font-family: var(--font-family);
+  transition: all 0.2s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+button:active {
+  transform: scale(0.97);
+}
+
+/* Base style for all dynamic cards to emulate physical premium paper */
+.glass-effect, 
+.home-card, .login-container, .ambulance-header, .vitals-form, .detail-group, .location-info,
+.hospital-header, .controls, .patient-card, .prealert-section,
+.admin-header, .admin-nav, .stat-card, .recent-activity, .patients-section, .ambulances-section, .user-card, .ambulance-card,
+.dispatcher-header, .dispatch-summary div, .dispatch-card,
+.hero-card, .caller-form-wrapper {
+  background: var(--apple-card) !important;
+  border: 1px solid var(--apple-border) !important;
+  box-shadow: var(--apple-shadow) !important;
+  border-radius: 12px; /* Slight relaxation of roundness for an organic feel */
+  transition: all 0.3s ease;
+}
+
+.home-card:hover, .stat-card:hover, .dispatch-card:hover, .user-card:hover, .ambulance-card:hover, .patient-card:hover {
+  background: var(--apple-card-hover) !important;
+  border-color: var(--apple-border-hover) !important;
+  box-shadow: var(--apple-shadow-hover) !important;
+  transform: translateY(-2px);
+}

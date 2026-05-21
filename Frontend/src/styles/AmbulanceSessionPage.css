@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+    --session-bg: #0f172a;
+    --session-card: rgba(15, 23, 42, 0.9);
+    --session-border: rgba(148, 163, 184, 0.2);
+    --session-accent: #22d3ee;
+    --session-text: #f8fafc;
+    --session-muted: rgba(248, 250, 252, 0.6);
+}
+
+.ambulance-session-page {
+    min-height: calc(100vh - 65px);
+    padding: 36px 28px 64px;
+    background: radial-gradient(circle at top, #1e293b 0%, #0f172a 55%, #020617 100%);
+    color: var(--session-text);
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.session-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.session-header h1 {
+    margin: 0 0 8px;
+    font-size: 30px;
+}
+
+.session-header p {
+    margin: 0;
+    color: var(--session-muted);
+}
+
+.end-btn {
+    background: #f97316;
+    color: #0f172a;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.session-alert {
+    background: rgba(248, 113, 113, 0.2);
+    border: 1px solid rgba(248, 113, 113, 0.4);
+    padding: 12px 16px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.session-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.session-card {
+    background: var(--session-card);
+    border: 1px solid var(--session-border);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 20px 40px rgba(2, 6, 23, 0.5);
+}
+
+.session-card h2 {
+    margin: 0 0 16px;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--session-muted);
+}
+
+.risk-level {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.vitals-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.vitals-grid span {
+    display: block;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--session-muted);
+}
+
+.vitals-grid strong {
+    font-size: 18px;
+}
+
+@media (max-width: 768px) {
+    .session-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+  .demo-worsen-btn {
+    background: #e63946;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 12px;
+  }
+  .update-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+  .update-grid label {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .update-grid input {
+    background: var(--apple-input-bg, #f5f5f7);
+    border: 1px solid transparent;
+    border-radius: 8px;
+    padding: 8px 10px;
+    font-size: 14px;
+    color: black;
+  }
+  .submit-update-btn {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+  }
+
+/* ─── Hospital-switch card (bhuvandev) ─────────── */
+.hospital-option {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--session-border);
+    border-radius: 10px;
+    padding: 12px 14px;
+    margin-bottom: 10px;
+}
+
+.hospital-option p { margin: 0 0 4px; font-size: 13px; }
+
+.option-detail { color: var(--session-muted); font-size: 12px !important; }
+
+.switch-hospital-btn {
+    margin-top: 8px;
+    padding: 8px 14px;
+    background: #1e3a5f;
+    color: #7dd3fc;
+    border: 1px solid #2563eb55;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.switch-hospital-btn:hover:not(:disabled) { background: #1e4a7f; }
+.switch-hospital-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.coords-small { font-size: 12px; color: var(--session-muted); margin: 2px 0 0; }
+
+/* ─── Dark-theme fix for update grid inputs ─── */
+.update-grid input {
+    background: rgba(255,255,255,0.07) !important;
+    border: 1px solid var(--session-border) !important;
+    border-radius: 8px;
+    padding: 8px 10px;
+    font-size: 14px;
+    color: var(--session-text) !important;
+}

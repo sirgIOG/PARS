@@ -1,0 +1,317 @@
+/* ══════════════════════════════════════════════════
+   WeWooWeWoo — Routing Simulation Page
+   Dark cinematic design
+══════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap');
+
+* { box-sizing: border-box; }
+
+.sim-page {
+    min-height: 100vh;
+    background: #060812;
+    color: #e2e8f0;
+    font-family: 'Inter', system-ui, sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ── Header ─────────────────────────────────────────── */
+.sim-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 28px;
+    background: rgba(255,255,255,0.03);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    flex-shrink: 0;
+}
+
+.sim-back {
+    color: #818cf8;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 6px;
+    transition: color 0.2s;
+}
+.sim-back:hover { color: #a5b4fc; }
+
+.sim-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    margin: 0 0 4px;
+    letter-spacing: -0.3px;
+}
+
+.sim-title-accent {
+    background: linear-gradient(135deg, #f97316, #ef4444);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.sim-subtitle {
+    font-size: 12px;
+    color: #64748b;
+    margin: 0;
+}
+
+.sim-badge {
+    padding: 6px 16px;
+    border-radius: 99px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+}
+.sim-badge.amber { background: rgba(251,191,36,0.15); color: #fbbf24; border: 1px solid rgba(251,191,36,0.3); }
+.sim-badge.green { background: rgba(34,197,94,0.15); color: #4ade80; border: 1px solid rgba(34,197,94,0.3); }
+
+/* ── Body ────────────────────────────────────────────── */
+.sim-body {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    height: calc(100vh - 82px);
+    overflow: hidden;
+}
+
+@media (max-width: 900px) {
+    .sim-body { grid-template-columns: 1fr; height: auto; }
+}
+
+/* ── Map ─────────────────────────────────────────────── */
+.sim-map-wrap {
+    position: relative;
+    overflow: hidden;
+}
+
+.sim-map {
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+}
+
+/* Custom ambulance/hospital pins */
+:global(.sim-pin) {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    border: 2.5px solid rgba(255,255,255,0.7);
+    box-shadow: 0 0 12px rgba(0,0,0,0.5), 0 0 20px currentColor;
+    cursor: pointer;
+}
+
+.sim-pin {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    border: 2.5px solid rgba(255,255,255,0.7);
+    box-shadow: 0 0 14px rgba(0,0,0,0.5);
+}
+
+/* Phase chip overlay on map */
+.sim-phase-chip {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: rgba(6, 8, 18, 0.88);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 12px 16px;
+    max-width: 320px;
+    z-index: 800;
+}
+
+.phase-label {
+    font-size: 14px;
+    font-weight: 700;
+    color: #f1f5f9;
+}
+
+.phase-detail {
+    font-size: 12px;
+    color: #94a3b8;
+    margin-top: 3px;
+}
+
+/* ── Side Panel ──────────────────────────────────────── */
+.sim-panel {
+    background: #090c1a;
+    border-left: 1px solid rgba(255,255,255,0.07);
+    overflow-y: auto;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.sim-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 12px;
+    padding: 14px 16px;
+}
+
+.sim-card-title {
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #475569;
+    margin-bottom: 12px;
+}
+
+/* ── Progress bar ─────────────────────────────────── */
+.sim-progress-bar {
+    height: 6px;
+    background: rgba(255,255,255,0.07);
+    border-radius: 99px;
+    overflow: hidden;
+    margin-bottom: 6px;
+}
+
+.sim-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #6366f1, #22d3ee);
+    border-radius: 99px;
+    transition: width 0.2s linear;
+}
+
+.sim-progress-stats {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: #64748b;
+}
+
+/* ── Controls ─────────────────────────────────────── */
+.sim-controls {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.sim-btn {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+.sim-btn.play { background: #6366f1; color: white; }
+.sim-btn.reset { background: rgba(255,255,255,0.08); color: #94a3b8; }
+.sim-btn:hover { opacity: 0.85; }
+
+.sim-speed {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #64748b;
+    margin-bottom: 10px;
+}
+
+.sim-slider {
+    -webkit-appearance: none;
+    height: 4px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 99px;
+    outline: none;
+    flex: 1;
+    margin-left: 10px;
+}
+.sim-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 14px; height: 14px;
+    background: #6366f1;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.sim-slider.wide { width: 100%; }
+
+.sim-toggle {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 12px;
+    color: #64748b;
+    cursor: pointer;
+}
+.sim-toggle input { margin-top: 2px; accent-color: #a78bfa; }
+
+/* ── Timeline ─────────────────────────────────────── */
+.timeline { display: flex; flex-direction: column; gap: 0; }
+
+.timeline-item {
+    display: flex;
+    gap: 10px;
+    padding: 8px 0;
+    cursor: pointer;
+    opacity: 0.45;
+    transition: opacity 0.2s;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.timeline-item:last-child { border-bottom: none; }
+.timeline-item.done { opacity: 0.75; }
+.timeline-item.current { opacity: 1; }
+
+.tl-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: #334155;
+    margin-top: 5px;
+    flex-shrink: 0;
+    transition: background 0.25s;
+}
+.timeline-item.done .tl-dot { background: #6366f1; }
+.timeline-item.current .tl-dot { background: #22d3ee; box-shadow: 0 0 8px #22d3ee; }
+
+.tl-label { font-size: 12px; font-weight: 600; color: #e2e8f0; }
+.tl-detail { font-size: 11px; color: #64748b; margin-top: 2px; }
+
+/* ── Hospital rows ────────────────────────────────── */
+.hosp-row {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.hosp-row:last-child { border-bottom: none; padding-bottom: 0; }
+
+.hosp-name { font-size: 13px; font-weight: 600; margin-bottom: 4px; }
+.hosp-meta { display: flex; gap: 8px; font-size: 11px; color: #64748b; flex-wrap: wrap; margin-bottom: 5px; }
+.hosp-score { color: #a78bfa; font-weight: 700; }
+.hosp-status { font-weight: 700; font-size: 10px; letter-spacing: 0.05em; }
+
+.hosp-bar {
+    height: 3px;
+    background: rgba(255,255,255,0.07);
+    border-radius: 99px;
+    overflow: hidden;
+}
+.hosp-bar div { height: 100%; border-radius: 99px; }
+
+/* ── Fleet ────────────────────────────────────────── */
+.fleet-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    font-size: 13px;
+}
+.fleet-row:last-child { border-bottom: none; }
+.fleet-id { font-weight: 600; }
+.fleet-status { font-size: 11px; font-weight: 800; letter-spacing: 0.07em; }

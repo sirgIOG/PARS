@@ -1,0 +1,213 @@
+/* Navigation */
+.navbar {
+  background: var(--apple-card);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.nav-logo {
+  color: var(--apple-text-primary);
+  text-decoration: none;
+  font-size: 19px;
+  font-weight: 600;
+  font-family: var(--font-heading);
+  padding: 18px 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  letter-spacing: -0.5px;
+  transition: opacity 0.2s;
+}
+
+.nav-logo:hover {
+  opacity: 0.7;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.nav-item {
+  margin: 0;
+}
+
+.nav-link {
+  color: var(--apple-text-secondary);
+  text-decoration: none;
+  padding: 8px 14px;
+  display: block;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  font-size: 14px;
+  border-radius: 8px;
+}
+
+.nav-link:hover {
+  color: var(--apple-text-primary);
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.nav-link.active {
+  color: var(--apple-blue);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 0 20px;
+    margin-right: 10px;
+    border-right: 1px solid var(--apple-border);
+}
+
+.user-name {
+    color: var(--apple-text-primary);
+    font-weight: 600;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.user-role {
+    color: var(--apple-text-secondary);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+.logout-btn {
+    padding: 8px 16px;
+    background: transparent;
+    color: var(--apple-red);
+    border: none;
+    border-radius: 99px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+.logout-btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.loading {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    color: var(--apple-text-secondary);
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.home-page {
+  min-height: calc(100vh - 65px);
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-section {
+  max-width: 900px;
+  width: 100%;
+  text-align: center;
+}
+
+.hero-section h1 {
+  font-size: 56px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: var(--apple-text-primary);
+  letter-spacing: -1.5px;
+}
+
+.hero-section p {
+  color: var(--apple-text-secondary);
+  font-size: 21px;
+  margin-bottom: 60px;
+  max-width: 600px;
+  margin-inline: auto;
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+.home-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.home-card {
+  background: var(--apple-card);
+  border: 1px solid var(--apple-border);
+  border-radius: 20px;
+  padding: 40px 30px;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: var(--apple-shadow);
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.home-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--apple-shadow-hover);
+}
+
+.card-icon {
+  font-size: 48px;
+  display: block;
+  margin-bottom: 24px;
+  color: var(--apple-text-primary);
+}
+
+.home-card h2 {
+  color: var(--apple-text-primary);
+  font-size: 24px;
+  margin-bottom: 12px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
+.home-card p {
+  color: var(--apple-text-secondary);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .nav-container { padding: 0 15px; }
+  .nav-logo { font-size: 17px; padding: 12px 0; }
+  .nav-link { padding: 8px 12px; font-size: 13px; }
+  .hero-section h1 { font-size: 40px; }
+  .hero-section p { font-size: 18px; }
+  .home-cards { gap: 16px; }
+  .home-card { padding: 30px 20px; border-radius: 16px; }
+}
